@@ -19,7 +19,7 @@ namespace DotNet.Jobs.Sample
                     //.WriteTo.RollingFile(@"C:\Jobs\Worker-{Date}.txt")
                     .CreateLogger();
 
-            JobManager.JobException += (sender, e) => { Log.Fatal(e.ExceptionObject, "JobManager.JobException"); };
+            JobManager.JobException += info => { Log.Fatal(info.Exception, "JobManager.JobException"); };
         }
 
         public void Start()
